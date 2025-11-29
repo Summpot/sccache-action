@@ -7,11 +7,10 @@
     "node": ">=16"
   },
   "scripts": {
-    "build-dist": "ncc build lib/setup.js -m -o dist/setup/ && ncc build lib/show_stats.js -m -o dist/show_stats",
-    "build": "prettier --write **/*.ts && tsc && npm run build-dist",
-    "format": "prettier --write **/*.ts",
-    "format-check": "prettier --check **/*.ts",
-    "lint": "eslint **/*.ts --cache",
+    "build": "rslib build",
+    "format": "biome format --write **/*.ts",
+    "format-check": "biome check --write **/*.ts",
+    "lint": "biome lint --write **/*.ts",
     "test": "jest --passWithNoTests"
   },
   "repository": {
@@ -29,11 +28,13 @@
   "homepage": "https://github.com/mozilla-actions/sccache-action#readme",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.0",
+    "@actions/github": "^6.0.1",
     "@actions/io": "^2.0.0",
     "@actions/tool-cache": "^2.0.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.8",
+    "@rslib/core": "^0.18.2",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.17",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
